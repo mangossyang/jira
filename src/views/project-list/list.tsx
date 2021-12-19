@@ -1,4 +1,16 @@
-const List = ({ lists }) => {
+import { User } from './SearchPanel'
+interface ListProps {
+  lists: Project[]
+  users: User[]
+}
+interface Project {
+  id: number
+  name: string
+  personId: number
+  organization: string
+  created: number
+}
+const List = ({ lists, users }: ListProps) => {
   return (
     <table>
       <thead>
@@ -11,7 +23,7 @@ const List = ({ lists }) => {
         {lists.map((i) => [
           <tr key={i.id}>
             <td>{i.name}</td>
-            <td>{i.personName}</td>
+            <td>{i.personId}</td>
           </tr>
         ])}
       </tbody>
