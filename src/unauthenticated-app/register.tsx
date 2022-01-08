@@ -1,24 +1,19 @@
-import { METHODS } from 'http'
+import { useAuth } from 'context/auth-context'
 import React, { FormEvent } from 'react'
-const Login = () => {
-  const login = (params: { username: string; password: string }) => {
-    fetch(`${process.env.REACT_APP_API_URL}/login`, {
-      method: 'post',
-      body: JSON.stringify(params),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-  }
+
+const Register = () => {
+  const { register } = useAuth()
+
   const handleClick = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const username = (e.currentTarget.elements[0] as HTMLInputElement).value
     const password = (e.currentTarget.elements[1] as HTMLInputElement).value
-    login({
+    register({
       username,
       password
     })
   }
+
   return (
     <form onSubmit={handleClick}>
       <div>
@@ -29,9 +24,9 @@ const Login = () => {
         <label>密码</label>
         <input type="password" />
       </div>
-      <button type={'submit'}>登录</button>
+      <button type={'submit'}>注册</button>
     </form>
   )
 }
 
-export default Login
+export default Register

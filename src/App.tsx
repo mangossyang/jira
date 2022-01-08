@@ -1,8 +1,10 @@
 import React from 'react'
-import ProjectList from './views/project-list'
-import Login from './views/login'
+import { useAuth } from 'context/auth-context'
+import { Authenticated } from 'authenticated-app'
+import { UnauthenticatedApp } from 'unauthenticated-app'
 function App() {
-  return <Login></Login>
+  const { user } = useAuth()
+  return user ? <Authenticated /> : <UnauthenticatedApp />
 }
 
 export default App

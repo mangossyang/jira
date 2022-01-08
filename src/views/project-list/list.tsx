@@ -20,12 +20,13 @@ const List = ({ lists, users }: ListProps) => {
         </tr>
       </thead>
       <tbody>
-        {lists.map((i) => [
-          <tr key={i.id}>
-            <td>{i.name}</td>
-            <td>{i.personId}</td>
-          </tr>
-        ])}
+        {lists.length &&
+          lists.map((i) => [
+            <tr key={i.id}>
+              <td>{i.name}</td>
+              <td>{i.personId}</td>
+            </tr>
+          ])}
       </tbody>
     </table>
   )

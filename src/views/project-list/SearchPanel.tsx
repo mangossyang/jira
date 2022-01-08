@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 export interface User {
   id: number
   name: string
+  token?: string
 }
 interface SearchPanelProps {
   users: User[]
@@ -34,11 +35,12 @@ const SearchPanel = ({ users, param, setParam }: SearchPanelProps) => {
         }
       >
         <option value="">负责人</option>
-        {users.map((item) => (
-          <option key={item.id} value={item.id}>
-            {item.name}
-          </option>
-        ))}
+        {users.length &&
+          users.map((item) => (
+            <option key={item.id} value={item.id}>
+              {item.name}
+            </option>
+          ))}
       </select>
     </div>
   )

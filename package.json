@@ -44,6 +44,10 @@
   "devDependencies": {
     "@types/qs": "^6.9.7",
     "json-serve": "^0.1.0",
-    "qs": "^6.10.2"
+    "qs": "^6.10.2",
+    "jira-dev-tool": "1.6.59"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }
