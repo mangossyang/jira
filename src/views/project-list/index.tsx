@@ -4,6 +4,7 @@ import { cleanObject } from '../../utils'
 import qs from 'qs'
 import List from './list'
 import useDebounce from '../../hooks/useDebounce'
+import useHttp from 'utils/http'
 const ProjectList = () => {
   const [users, setUsers] = useState([])
   const [lists, setLists] = useState([])
@@ -11,20 +12,15 @@ const ProjectList = () => {
     name: '',
     personId: ''
   })
+  const resquest = useHttp()
+  console.log(resquest)
+
   const debounceParam = useDebounce(param)
   useEffect(() => {
-    fetch(
-      `${process.env.REACT_APP_API_URL}/projects?${qs.stringify(
-        cleanObject(debounceParam)
-      )}`
-    ).then(async (res) => {
-      setLists(await res.json())
-    })
+    resquest('projects', { data: cleanObject(debounceParam) }).then(setLists)
   }, [debounceParam])
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/users`).then(async (res) => {
-      setUsers(await res.json())
-    })
+    resquest('users').then(setUsers)
   }, [])
   return (
     <div>
