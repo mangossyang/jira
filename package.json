@@ -17,9 +17,9 @@
     "web-vitals": "^2.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject",
     "json-server": "json-server mock/db.json -w -p 8888 -m ./mock/middlewares.js"
   },
@@ -42,10 +42,15 @@
     ]
   },
   "devDependencies": {
+    "@craco/craco": "^6.4.3",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
     "@types/qs": "^6.9.7",
+    "craco-less": "^2.0.0",
+    "dayjs": "^1.10.7",
+    "jira-dev-tool": "1.6.59",
     "json-serve": "^0.1.0",
-    "qs": "^6.10.2",
-    "jira-dev-tool": "1.6.59"
+    "qs": "^6.10.2"
   },
   "msw": {
     "workerDirectory": "public"

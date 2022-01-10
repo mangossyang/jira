@@ -2,7 +2,7 @@ export const cleanObject = <O>(obj: O) => {
   const result = { ...obj }
 
   for (const key in obj) {
-    if (isFalse(obj[key])) {
+    if (isVoid(obj[key])) {
       delete result[key]
     }
   }
@@ -10,6 +10,7 @@ export const cleanObject = <O>(obj: O) => {
 }
 const isFalse = (v: unknown): boolean => (v === 0 ? false : !v)
 
+const isVoid = (v: unknown): boolean => v === undefined || v === null || v === ''
 // export const debounce = (func, delay = 2000) => {
 //   let timer
 //   return (...args) => {

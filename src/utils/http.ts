@@ -27,7 +27,6 @@ const http = async (url: string, { data, token, ...customConfig }: Config = {}) 
             return Promise.reject('请重新登录')
         }
         const data = await res.json()
-        console.log(data);
 
         if (res.ok) {
             return data
